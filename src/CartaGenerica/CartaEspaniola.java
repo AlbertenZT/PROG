@@ -31,4 +31,55 @@ public class CartaEspaniola extends CartaGenerica {
         super.setPalo(palo);
     }
 
+    @Override
+    public void setNumero(int numero) {
+        Scanner sc = new Scanner(System.in);
+        boolean permitido = false;
+        while (permitido = false) {
+
+            if (numero >= 1 && numero <= 12) {
+                permitido = true;
+            } else {
+                System.out.println("Ponga un numero valido");
+                numero = sc.nextInt();
+            }
+            super.setNumero(numero);
+        }
+    }
+
+    @Override
+    public String toString() {
+        String ElNumero ="";
+        
+        if(getNumero()== 12){
+            ElNumero = "REY";
+            return "La carta es: "+ElNumero+" de "+getPalo();
+        } else if(getNumero()== 11){
+            ElNumero = "CABALLO";
+            return "La carta es: "+ElNumero+" de "+getPalo();
+        }else if(getNumero()== 10){
+            ElNumero = "SOTA";
+            return "La carta es: "+ElNumero+" de "+getPalo();
+        } else{return "La carta es: "+getNumero()+" de "+getPalo();}
+    }
+    
+    
+    
+    @Override
+    public String mostrar(){
+        String ElNumero ="";
+        
+        if(getNumero()== 12){
+            ElNumero = "REY";
+            return "La carta es: "+ElNumero+" de "+getPalo();
+        } else if(getNumero()== 11){
+            ElNumero = "CABALLO";
+            return "La carta es: "+ElNumero+" de "+getPalo();
+        }else if(getNumero()== 10){
+            ElNumero = "SOTA";
+            return "La carta es: "+ElNumero+" de "+getPalo();
+        } else{return "La carta es: "+getNumero()+" de "+getPalo();}
+        
+    }
+
 }
