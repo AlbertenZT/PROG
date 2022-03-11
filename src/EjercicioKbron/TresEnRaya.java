@@ -24,12 +24,6 @@ public class TresEnRaya {
             System.out.println("--------------");
             System.out.println("Turno de X! en que casilla desea colocar su X");
             int num = sc.nextInt();
-            while(Tablero.get(num).equals('X')||Tablero.get(num).equals('O')){
-                System.out.println("Ese lugar no está disponible, pruebe otro");
-                System.out.println("Turno de X! en que casilla desea colocar su X");
-                num = sc.nextInt();
-                
-            }
             Tablero.put(num,'X');
             if(
                Tablero.get(1).equals('X')&&Tablero.get(2).equals('X')&&Tablero.get(3).equals('X')||
@@ -52,12 +46,6 @@ public class TresEnRaya {
             
             System.out.println("Turno de O! en que casilla desea colocar su O");
             int num2 = sc.nextInt();
-            while(Tablero.get(num).equals('X')||Tablero.get(num).equals('O')){
-                System.out.println("Ese lugar no está disponible, pruebe otro");
-                System.out.println("Turno de O! en que casilla desea colocar su O");
-                num = sc.nextInt();
-                
-            }
             Tablero.put(num2,'O');
             
             
@@ -75,10 +63,6 @@ public class TresEnRaya {
                 ganador =1;
                 break;
             }
-            
-            
-            
-            
         }while(Partida=true);
         
         if(ganador==0){
