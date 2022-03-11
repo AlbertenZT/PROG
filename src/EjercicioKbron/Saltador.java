@@ -43,9 +43,6 @@ public class Saltador implements Comparable<Saltador>{
         }
         return -1;
     }
-    
-    
-    
     void registrarSalto(int distancia){
         Salto saltito2 = new Salto(Nombre,distancia);
         int indice = GetIndex(this.Nombre);
