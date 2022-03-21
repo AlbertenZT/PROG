@@ -12,7 +12,7 @@ personales (nombre, apellidos, DNI, dirección) y algunos datos tales como los
 años de antigüedad, teléfono de contacto y su salario.
 */
     
-    
+    //Atributos
     String nombre;
     String apellidos;
     String DNI;
@@ -20,6 +20,10 @@ años de antigüedad, teléfono de contacto y su salario.
     int AniosAntiguedad;
     int telefonoContacto;
     int Salario;
+    Empleado Supervisor;
+     //metodos
+    
+    
     
 /*
     Incluye también información de quién es el empleado que lo supervisa
@@ -31,10 +35,34 @@ apellidos, DNI, dirección, teléfono y salario.
 • Incrementar salario
 
     */    
+
+    public Empleado(String nombre, String apellidos, String DNI, String direccion, int AniosAntiguedad, int telefonoContacto, int Salario) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.DNI = DNI;
+        this.direccion = direccion;
+        this.AniosAntiguedad = AniosAntiguedad;
+        this.telefonoContacto = telefonoContacto;
+        this.Salario = Salario;
+    }
+    void Imprimir(){
+        System.out.println("Nombre: "+nombre+""
+                + " appelido: "+apellidos
+                + "DNI: "+DNI
+                + "direccion: "+direccion
+                + "Años de antigüedad"+AniosAntiguedad
+                + "telefono: "+telefonoContacto
+                + "Salario: "+Salario);
+    }
+    void cambiarSupervisor(Empleado sup){
+        Supervisor = sup;
+    }
+    void IncrementarSalario(int NumeroASumar){
+        Salario +=NumeroASumar;
+    }
+    /*
     
-    
-    
-    
+    */
     
     
     
