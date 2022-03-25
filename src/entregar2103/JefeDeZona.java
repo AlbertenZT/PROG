@@ -24,21 +24,17 @@ public class JefeDeZona extends Empleado{
     List<Vendedor> vendedores;
     Coche brumBrum;
 
-    public JefeDeZona(int despacho, Secretario secretario, List<Vendedor> vendedores, Coche brumBrum) {
+   
+
+    public JefeDeZona(int despacho, Secretario secretario, List<Vendedor> vendedores, Coche brumBrum, String nombre, String apellidos, String DNI, String direccion, int AniosAntiguedad, int telefonoContacto, int Salario, Empleado supervisor) {
+        super(nombre, apellidos, DNI, direccion, AniosAntiguedad, telefonoContacto, Salario, supervisor);
         this.despacho = despacho;
         this.secretario = secretario;
         this.vendedores = vendedores;
         this.brumBrum = brumBrum;
     }
 
-    public JefeDeZona(int despacho, Secretario secretario, List<Vendedor> vendedores, Coche brumBrum, String nombre, String apellidos, String DNI, String direccion, int AniosAntiguedad, int telefonoContacto, int Salario) {
-        super(nombre, apellidos, DNI, direccion, AniosAntiguedad, telefonoContacto, Salario);
-        this.despacho = despacho;
-        this.secretario = secretario;
-        this.vendedores = vendedores;
-        this.brumBrum = brumBrum;
-        LiquidoAPercibir = (float) (LiquidoAPercibir+(LiquidoAPercibir*0.2));
-    }
+    
     
     @Override
     void Imprimir(){
@@ -84,5 +80,39 @@ public class JefeDeZona extends Empleado{
             System.out.println("vendedor no encontrado");
         }
     }
+
+    public void setDespacho(int despacho) {
+        this.despacho = despacho;
+    }
+
+    public void setSecretario(Secretario secretario) {
+        this.secretario = secretario;
+    }
+
+    public void setVendedores(List<Vendedor> vendedores) {
+        this.vendedores = vendedores;
+    }
+
+    public void setBrumBrum(Coche brumBrum) {
+        this.brumBrum = brumBrum;
+    }
+
+    public int getDespacho() {
+        return despacho;
+    }
+
+    public Secretario getSecretario() {
+        return secretario;
+    }
+
+    public List<Vendedor> getVendedores() {
+        return vendedores;
+    }
+
+    public Coche getBrumBrum() {
+        return brumBrum;
+    }
+
+    
     
 }

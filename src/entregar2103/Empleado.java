@@ -5,7 +5,7 @@
  */
 package entregar2103;
 
-public class Empleado {
+public abstract class Empleado {
     /*
     . Empleado. Clase básica que describe a un empleado. Incluye sus datos
 personales (nombre, apellidos, DNI, dirección) y algunos datos tales como los
@@ -36,18 +36,9 @@ apellidos, DNI, dirección, teléfono y salario.
 • Incrementar salario
 
     */    
-    public Empleado(){
-        nombre = "John";
-        apellidos="Wick";
-        DNI = "12345678O";
-        direccion = "";
-        AniosAntiguedad=0;
-        telefonoContacto=123456789;
-        Salario = 1000;
-        LiquidoAPercibir = Salario;
-    }
+    
     public Empleado(String nombre, String apellidos, String DNI,
-            String direccion, int AniosAntiguedad, int telefonoContacto, int Salario) {
+            String direccion, int AniosAntiguedad, int telefonoContacto, int Salario,Empleado supervisor) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.DNI = DNI;
@@ -55,17 +46,11 @@ apellidos, DNI, dirección, teléfono y salario.
         this.AniosAntiguedad = AniosAntiguedad;
         this.telefonoContacto = telefonoContacto;
         this.Salario = Salario;
+        this.Supervisor = supervisor;
         LiquidoAPercibir=this.Salario;
     }
-    void Imprimir(){
-        System.out.println("Nombre: "+nombre+""
-                + "/nappelido: "+apellidos
-                + "/nDNI: "+DNI
-                + "/ndireccion: "+direccion
-                + "/nAños de antigüedad"+AniosAntiguedad
-                + "/ntelefono: "+telefonoContacto
-                + "/nSalario: "+Salario);
-    }
+    abstract void  Imprimir();
+    
     void cambiarSupervisor(Empleado sup){
         Supervisor = sup;
     }
@@ -75,9 +60,80 @@ apellidos, DNI, dirección, teléfono y salario.
     void setLiquidoAPercibir(int ih){
         LiquidoAPercibir = ih;
     }
-    /*
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getDNI() {
+        return DNI;
+    }
+
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public int getAniosAntiguedad() {
+        return AniosAntiguedad;
+    }
+
+    public void setAniosAntiguedad(int AniosAntiguedad) {
+        this.AniosAntiguedad = AniosAntiguedad;
+    }
+
+    public int getTelefonoContacto() {
+        return telefonoContacto;
+    }
+
+    public void setTelefonoContacto(int telefonoContacto) {
+        this.telefonoContacto = telefonoContacto;
+    }
+
+    public float getSalario() {
+        return Salario;
+    }
+
+    public void setSalario(float Salario) {
+        this.Salario = Salario;
+    }
+
+    public Empleado getSupervisor() {
+        return Supervisor;
+    }
+
+    public void setSupervisor(Empleado Supervisor) {
+        this.Supervisor = Supervisor;
+    }
+
+    public float getLiquidoAPercibir() {
+        return LiquidoAPercibir;
+    }
+
+    public void setLiquidoAPercibir(float LiquidoAPercibir) {
+        this.LiquidoAPercibir = LiquidoAPercibir;
+    }
+
     
-    */
     
     
     

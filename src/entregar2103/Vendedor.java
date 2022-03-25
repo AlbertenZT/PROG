@@ -25,23 +25,17 @@ public class Vendedor extends Empleado{
     int AreaVenta;
     List clientes;
 
-    public Vendedor(Coche cocheEmpresa, int telefonoOtro, int AreaVenta, List clientes) {
+    
+
+    public Vendedor(Coche cocheEmpresa, int telefonoOtro, int AreaVenta, List clientes, String nombre, String apellidos, String DNI, String direccion, int AniosAntiguedad, int telefonoContacto, int Salario, Empleado supervisor) {
+        super(nombre, apellidos, DNI, direccion, AniosAntiguedad, telefonoContacto, Salario, supervisor);
         this.cocheEmpresa = cocheEmpresa;
         this.telefonoOtro = telefonoOtro;
         this.AreaVenta = AreaVenta;
         this.clientes = clientes;
     }
 
-    public Vendedor(Coche cocheEmpresa, int telefonoOtro, int AreaVenta, List clientes, String nombre, String apellidos, String DNI, String direccion, int AniosAntiguedad, int telefonoContacto, int Salario) {
-        
-        super(nombre, apellidos, DNI, direccion, AniosAntiguedad, telefonoContacto, Salario);
-        this.cocheEmpresa = cocheEmpresa;
-        this.telefonoOtro = telefonoOtro;
-        this.AreaVenta = AreaVenta;
-        this.clientes = clientes;
-        LiquidoAPercibir=(float) (LiquidoAPercibir+(LiquidoAPercibir*0.1));
-        
-    }
+    
     //Imprimir
     @Override
     void Imprimir(){
@@ -82,6 +76,40 @@ public class Vendedor extends Empleado{
         cocheEmpresa.modelo = model;
         cocheEmpresa.Matricula=matricula;
     }
+
+    public Coche getCocheEmpresa() {
+        return cocheEmpresa;
+    }
+
+    public int getTelefonoOtro() {
+        return telefonoOtro;
+    }
+
+    public int getAreaVenta() {
+        return AreaVenta;
+    }
+
+    public List getClientes() {
+        return clientes;
+    }
+
+    public void setCocheEmpresa(Coche cocheEmpresa) {
+        this.cocheEmpresa = cocheEmpresa;
+    }
+
+    public void setTelefonoOtro(int telefonoOtro) {
+        this.telefonoOtro = telefonoOtro;
+    }
+
+    public void setAreaVenta(int AreaVenta) {
+        this.AreaVenta = AreaVenta;
+    }
+
+    public void setClientes(List clientes) {
+        this.clientes = clientes;
+    }
+
+    
     
     
     

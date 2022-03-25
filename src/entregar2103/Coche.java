@@ -20,6 +20,22 @@ public class Coche {
         Marca = "Audi";
         modelo = "13-14";
     }
+
+    public void setMatricula(String Matricula) {
+        this.Matricula = Matricula;
+    }
+
+    public String getMatricula() {
+        return Matricula;
+    }
+
+    public String getMarca() {
+        return Marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
     
     
     

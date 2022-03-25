@@ -16,16 +16,15 @@ public class Secretario extends Empleado{
     int Descapacho;
     int numFax;
 
-    public Secretario(int Descapacho, int numFax) {
+    
+
+    public Secretario(int Descapacho, int numFax, String nombre, String apellidos, String DNI, String direccion, int AniosAntiguedad, int telefonoContacto, int Salario, Empleado supervisor) {
+        super(nombre, apellidos, DNI, direccion, AniosAntiguedad, telefonoContacto, Salario, supervisor);
         this.Descapacho = Descapacho;
         this.numFax = numFax;
     }
 
-    public Secretario(int Descapacho, int numFax, String nombre, String apellidos, String DNI, String direccion, int AniosAntiguedad, int telefonoContacto, int Salario) {
-        super(nombre, apellidos, DNI, direccion, AniosAntiguedad, telefonoContacto, Salario);
-        this.Descapacho = Descapacho;
-        this.numFax = numFax;
-    }
+    
     
     @Override
     
@@ -41,6 +40,24 @@ public class Secretario extends Empleado{
                 + "/nFax: "+numFax
                 + "/nDespacho: "+Descapacho);
     }
+
+    public int getDescapacho() {
+        return Descapacho;
+    }
+
+    public int getNumFax() {
+        return numFax;
+    }
+
+    public void setDescapacho(int Descapacho) {
+        this.Descapacho = Descapacho;
+    }
+
+    public void setNumFax(int numFax) {
+        this.numFax = numFax;
+    }
+
+    
     
     
     
