@@ -8,10 +8,6 @@ public class ArrayListEjemplo {
     public static void main(String[] args){
         //ArrayList o linkedlist normal
         
-        
-
-        
-        
         //Pila
         
         Stack<String> pila = new Stack<>();
