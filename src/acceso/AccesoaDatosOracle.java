@@ -178,9 +178,16 @@ public class AccesoaDatosOracle {
 	//--------------Utilizando objetos statement---------
 		
 		//Consultas DQL - statement
-		  statementQueryExample();
-		
-				
+                System.out.println("EJERCICIO 1");
+		statementQueryExample1();
+                System.out.println("");
+                System.out.println("EJERCICIO 2");
+                statementQueryExample2();
+                System.out.println("");
+		System.out.println("EJERCICIO 3");
+                statementQueryExample3(); System.out.println("");
+		System.out.println("EJERCICIO 4");
+                statementQueryExample4();		
 		//Consultas DML - statement
 		 // statementInsertExample();
 		 // statementDeleteExample();
@@ -193,9 +200,9 @@ public class AccesoaDatosOracle {
 	 */
 	
 	
-	public static void statementQueryExample()
+	public static void statementQueryExample1()
 	{
-	 String query="SELECT * FROM EMP";
+	String query="SELECT * FROM EMP";
 				
 	 try{	
 	 	 //Load the driver in RAM
@@ -216,7 +223,7 @@ Connection connection = DriverManager.getConnection(
                     "jdbc.url=jdbc:oracle:thin:@delfos:1521:SCOTT", "alumnoDAM", "uno");
 */
 Connection connection = DriverManager.getConnection
-                  ("jdbc:oracle:thin:@delfos:1521:XE", "alumnoDAM", "uno");
+                  ("jdbc:oracle:thin:@delfos:1521:XE", "albertozate", "UNO");
 
 	     //Connect to DB
 		// Connection connection=DriverManager.getConnection(url,user,password);
@@ -229,7 +236,7 @@ Connection connection = DriverManager.getConnection
 		 //Iterate on the 'ResultSet' to process each row
 		 while(result.next()){//There are still rows to get
 			 //We get data of each row in the right order: getInt, getString, getString
-			 System.out.println(result.getInt(1)+" "+result.getString(2)+" "+result.getString(3));	 
+			 System.out.println(result.getInt(1)+"|"+result.getString(2)+"|"+result.getString(3) + "\n");	 
 		 }
 		 
 		 result.close(); //close ResultSet
@@ -246,6 +253,164 @@ Connection connection = DriverManager.getConnection
 	 }					
 	}
 	
+        public static void statementQueryExample2()
+	{
+	String query="SELECT * FROM DEPT";
+				
+	 try{	
+	 	 //Load the driver in RAM
+		// Class.forName(driver);
+                 
+                 
+                 
+                 // Load the JDBC Driver
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+// Create a connection
+/*
+            Connection connection = DriverManager.getConnection(
+                    "jdbc.url=jdbc:oracle:thin:@//xxxxx.xxxxx.xxxxx.net:puerto:Servicio", "Usuario", "Password");
+*/		
+/*
+Connection connection = DriverManager.getConnection(
+                    "jdbc.url=jdbc:oracle:thin:@delfos:1521:SCOTT", "alumnoDAM", "uno");
+*/
+Connection connection = DriverManager.getConnection
+                  ("jdbc:oracle:thin:@delfos:1521:XE", "albertozate", "UNO");
+
+	     //Connect to DB
+		// Connection connection=DriverManager.getConnection(url,user,password);
+		// Connection connection=DriverManager.getConnection("jdbc:sqlite:.BDGestionEmpleados.db","","");
+		// Connection connection=DriverManager.getConnection(url);
+		 //Create statement and execute query, to obtain a 'ResultSet'
+		 Statement statement=connection.createStatement();
+		 ResultSet result=statement.executeQuery(query);
+		 
+		 //Iterate on the 'ResultSet' to process each row
+		 while(result.next()){//There are still rows to get
+			 //We get data of each row in the right order: getInt, getString, getString
+			 System.out.println(+result.getInt(1)+"|"+result.getString(2)+"|"+result.getString(3));	 
+		 }
+		 
+		 result.close(); //close ResultSet
+		 statement.close();//close Statement
+		 connection.close();//close Connection
+					
+	 }catch(ClassNotFoundException cnfe){  
+			System.out.printf("Not found the jdbc driver %s\n", driver);
+	 }catch (SQLException sqle){
+			System.out.println("SQL Exception");
+                        System.out.println(sqle.getMessage());
+                      sqle.printStackTrace();
+                        
+	 }					
+	}
+	
+        public static void statementQueryExample3()
+	{
+	String query="SELECT ENAME, DNAME, LOC FROM EMP JOIN DEPT ON DEPT.DEPTNO = EMP.DEPTNO";
+				
+	 try{	
+	 	 //Load the driver in RAM
+		// Class.forName(driver);
+                 
+                 
+                 
+                 // Load the JDBC Driver
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+// Create a connection
+/*
+            Connection connection = DriverManager.getConnection(
+                    "jdbc.url=jdbc:oracle:thin:@//xxxxx.xxxxx.xxxxx.net:puerto:Servicio", "Usuario", "Password");
+*/		
+/*
+Connection connection = DriverManager.getConnection(
+                    "jdbc.url=jdbc:oracle:thin:@delfos:1521:SCOTT", "alumnoDAM", "uno");
+*/
+Connection connection = DriverManager.getConnection
+                  ("jdbc:oracle:thin:@delfos:1521:XE", "albertozate", "UNO");
+
+	     //Connect to DB
+		// Connection connection=DriverManager.getConnection(url,user,password);
+		// Connection connection=DriverManager.getConnection("jdbc:sqlite:.BDGestionEmpleados.db","","");
+		// Connection connection=DriverManager.getConnection(url);
+		 //Create statement and execute query, to obtain a 'ResultSet'
+		 Statement statement=connection.createStatement();
+		 ResultSet result=statement.executeQuery(query);
+		 
+		 //Iterate on the 'ResultSet' to process each row
+		 while(result.next()){//There are still rows to get
+			 //We get data of each row in the right order: getInt, getString, getString
+			 System.out.println(result.getString(1)+"|"+result.getString(2)+"|"+result.getString(3));	 
+		 }
+		 
+		 result.close(); //close ResultSet
+		 statement.close();//close Statement
+		 connection.close();//close Connection
+					
+	 }catch(ClassNotFoundException cnfe){  
+			System.out.printf("Not found the jdbc driver %s\n", driver);
+	 }catch (SQLException sqle){
+			System.out.println("SQL Exception");
+                        System.out.println(sqle.getMessage());
+                      sqle.printStackTrace();
+                        
+	 }					
+	}
+        
+        public static void statementQueryExample4()
+	{
+	String query="SELECT AVG(SAL),DEPTNO FROM EMPLE GROUP BY DEPTNO";
+				
+	 try{	
+	 	 //Load the driver in RAM
+		// Class.forName(driver);
+                 
+                 
+                 
+                 // Load the JDBC Driver
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+// Create a connection
+/*
+            Connection connection = DriverManager.getConnection(
+                    "jdbc.url=jdbc:oracle:thin:@//xxxxx.xxxxx.xxxxx.net:puerto:Servicio", "Usuario", "Password");
+*/		
+/*
+Connection connection = DriverManager.getConnection(
+                    "jdbc.url=jdbc:oracle:thin:@delfos:1521:SCOTT", "alumnoDAM", "uno");
+*/
+Connection connection = DriverManager.getConnection
+                  ("jdbc:oracle:thin:@delfos:1521:XE", "albertozate", "UNO");
+
+	     //Connect to DB
+		// Connection connection=DriverManager.getConnection(url,user,password);
+		// Connection connection=DriverManager.getConnection("jdbc:sqlite:.BDGestionEmpleados.db","","");
+		// Connection connection=DriverManager.getConnection(url);
+		 //Create statement and execute query, to obtain a 'ResultSet'
+		 Statement statement=connection.createStatement();
+		 ResultSet result=statement.executeQuery(query);
+		 
+		 //Iterate on the 'ResultSet' to process each row
+		 while(result.next()){//There are still rows to get
+			 //We get data of each row in the right order: getInt, getString, getString
+			 System.out.println(result.getDouble(1)+"|"+result.getString(2)+ "\n");	 
+		 }
+		 
+		 result.close(); //close ResultSet
+		 statement.close();//close Statement
+		 connection.close();//close Connection
+					
+	 }catch(ClassNotFoundException cnfe){  
+			System.out.printf("Not found the jdbc driver %s\n", driver);
+	 }catch (SQLException sqle){
+			System.out.println("SQL Exception");
+                        System.out.println(sqle.getMessage());
+                      sqle.printStackTrace();
+                        
+	 }					
+	}
 	
 	/** <p>Inserting, deleting, Updating Data on the database using a database DML mechanism. 
 	 *    The following examples 'statementInsert/Delete/UpdateExample' shows creating a statement and executing an 'Update' query.

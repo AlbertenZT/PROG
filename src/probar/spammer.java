@@ -18,13 +18,15 @@ public class spammer {
         System.out.println("Dime el texto para spamear jeje");
         String texto = sc.nextLine();
         
-        StringSelection st = new StringSelection(texto);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.getContents(st,null);
+        StringSelection stringSelection = new StringSelection(texto);
+        Clipboard clpbrd = Toolkit.getDefaultToolkit ().getSystemClipboard ();
+        clpbrd.setContents (stringSelection, null);
+
+Fuente: https://www.iteramos.com/pregunta/34882/copiar-texto-en-el-portapapeles-con-java
         
         System.out.println("Wait 5 sec");
         Thread.sleep(5000);
-        while(x <=10){
+        while(x <=20){
             Thread.sleep(100);
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_V);
