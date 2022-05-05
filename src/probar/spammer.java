@@ -26,7 +26,7 @@ Fuente: https://www.iteramos.com/pregunta/34882/copiar-texto-en-el-portapapeles-
         
         System.out.println("Wait 5 sec");
         Thread.sleep(5000);
-        while(x <=20){
+        while(x <=500){
             Thread.sleep(100);
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_V);
